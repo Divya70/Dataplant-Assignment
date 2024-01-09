@@ -18,8 +18,13 @@
 }
 
 .table thead {
-  background-color: #ccc;
-  color: #222;
+  background: rgba(60, 30, 90, 0.1);
+  color: #333;
+  font-family: Nunito Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .table th,
@@ -47,18 +52,6 @@
   color: #333;
 }
 
-/* .label-draft {
-  background-color: #777;
-}
-
-.label-live {
-  background-color: #42a942;
-}
-
-.label-error {
-  background-color: #d9534f;
-} */
-
 .actions {
   display: flex;
   justify-content: space-around;
@@ -69,5 +62,5 @@
 }
 
 .delete-btn {
-  color: #3C1E5A;
+  color: #3c1e5a;
 }

@@ -64,7 +64,7 @@ const TimeDropdown = () => {
   };
 
   return (
-    <div>
+    <div className="form-group">
       <label>Time:</label>
       <select value={timeState} onChange={handleTimeChange}>
         <option value="10:00 AM" disabled>

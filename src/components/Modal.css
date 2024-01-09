@@ -19,6 +19,12 @@
   padding: 2rem;
   background-color: white;
   width: 25em;
+  color: #333;
+font-family: Nunito Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
 }
 .ButtonContainer{
   display: flex;
@@ -26,7 +32,17 @@
   justify-content: flex-end;
   gap: 1rem;
 }
-
+.CancelBtn{
+  border-radius: 4px !important;
+background: #EBE8EF !important;
+color: #333;
+text-align: center;
+font-family: Nunito Sans;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
 .form-group {
   display: flex;
   flex-direction: column;

@@ -62,7 +62,7 @@ export const Modal = ({ closeModal, onSubmit, defaultValue,rowToEdit }) => {
         
         <form>
           <div className="form-group">
-            <label htmlFor="title">title</label>
+            <label htmlFor="title">Title</label>
             <input
               name="title"
               onChange={handleChange}
@@ -115,7 +115,7 @@ export const Modal = ({ closeModal, onSubmit, defaultValue,rowToEdit }) => {
           ) : formState.frequency === "Monthly at" ? (
             <>
             <div>Repeat</div>
-            <div>
+            <div className="form-group">
             <select
               name="months"
               onChange={handleChange}
@@ -131,7 +131,7 @@ export const Modal = ({ closeModal, onSubmit, defaultValue,rowToEdit }) => {
           )}
           <TimeDropdown />
           <div className="ButtonContainer">
-            <button className="btn">Cancel</button>
+            <button className="CancelBtn btn">Cancel</button>
             {errors && (
               <div className="error">{`Please include: ${errors}`}</div>
             )}
