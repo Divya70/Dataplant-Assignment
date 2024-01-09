@@ -44,10 +44,10 @@
 .label {
   border-radius: 3px;
   padding: 0.3rem;
-  color: white;
+  color: #333;
 }
 
-.label-draft {
+/* .label-draft {
   background-color: #777;
 }
 
@@ -57,7 +57,7 @@
 
 .label-error {
   background-color: #d9534f;
-}
+} */
 
 .actions {
   display: flex;
@@ -69,5 +69,5 @@
 }
 
 .delete-btn {
-  color: #e10d05;
+  color: #3C1E5A;
 }

@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 
 import "./Modal.css";
+import TimeDropdown from "./Time";
 
-export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
+export const Modal = ({ closeModal, onSubmit, defaultValue,rowToEdit }) => {
   const [formState, setFormState] = useState(
     defaultValue || {
-      page: "",
+      title: "",
       description: "",
-      status: "live",
+      subject: "",
+      frequency: "Daily at",
+      months:"First Monday"
     }
   );
   const [errors, setErrors] = useState("");
 
   const validateForm = () => {
-    if (formState.page && formState.description && formState.status) {
+    if (
+      formState.title &&
+      formState.description &&
+      formState.subject &&
+      formState.frequency
+    ) {
       setErrors("");
       return true;
     } else {
@@ -50,10 +58,16 @@ export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
       }}
     >
       <div className="modal">
+        {rowToEdit?<div>Edit Schedule</div>:<div>Add Schedule</div>}
+        
         <form>
           <div className="form-group">
-            <label htmlFor="page">Page</label>
-            <input name="page" onChange={handleChange} value={formState.page} />
+            <label htmlFor="title">title</label>
+            <input
+              name="title"
+              onChange={handleChange}
+              value={formState.title}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="description">Description</label>
@@ -64,21 +78,70 @@ export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="status">Status</label>
-            <select
-              name="status"
+            <label htmlFor="subject">Subject</label>
+            <input
+              name="subject"
               onChange={handleChange}
-              value={formState.status}
+              value={formState.subject}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="frequency">Frequency</label>
+            <select
+              name="frequency"
+              onChange={handleChange}
+              value={formState.frequency}
             >
-              <option value="live">Live</option>
-              <option value="draft">Draft</option>
-              <option value="error">Error</option>
+              <option value="Daily at">Daily</option>
+              <option value="Weekly at">Weekly</option>
+              <option value="Monthly at">Monthly</option>
             </select>
           </div>
-          {errors && <div className="error">{`Please include: ${errors}`}</div>}
-          <button type="submit" className="btn" onClick={handleSubmit}>
-            Submit
-          </button>
+          {formState.frequency === "Weekly at" ? (
+            <div className="WeekContainer">
+            <div>
+              Repeat
+            </div>
+            <div className="WeekName">
+              <span>S</span>
+              <span>M</span>
+              <span>T</span>
+              <span>W</span>
+              <span>T</span>
+              <span>F</span>
+              <span>S</span>
+            </div>
+            </div>
+          ) : formState.frequency === "Monthly at" ? (
+            <>
+            <div>Repeat</div>
+            <div>
+            <select
+              name="months"
+              onChange={handleChange}
+              value={formState.months}
+            >
+              <option value="First Monday">First Monday</option>
+              <option value="Last Friday">Last Friday</option>
+            </select>
+            </div>
+            </>  
+          ) : (
+            ""
+          )}
+          <TimeDropdown />
+          <div className="ButtonContainer">
+            <button className="btn">Cancel</button>
+            {errors && (
+              <div className="error">{`Please include: ${errors}`}</div>
+            )}
+            {rowToEdit?<button type="submit" className="btn" onClick={handleSubmit}>
+              Update
+            </button>:<button type="submit" className="btn" onClick={handleSubmit}>
+              Done
+            </button>}
+            
+          </div>
         </form>
       </div>
     </div>

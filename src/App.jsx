@@ -3,24 +3,30 @@ import { useState } from "react";
 import "./App.css";
 import { Table } from "./components/Table";
 import { Modal } from "./components/Modal";
-
+import { CgAdd } from "react-icons/cg";
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [rows, setRows] = useState([
     {
-      page: "Home",
+      title: "Home",
       description: "This is the main page of the website",
-      status: "live",
+      subject: "Sample Subject",
+      frequency:"Daily at",
+      time:"10:00 AM"
     },
     {
-      page: "About Us",
+      title: "About Us",
       description: "This page has details about the company",
-      status: "draft",
+      subject: "Sample Subject",
+      frequency:"Daily at",
+      time:"10:00 AM"
     },
     {
-      page: "Pricing",
+      title: "Pricing",
       description: "Prices for different subscriptions",
-      status: "error",
+      subject: "Sample Subject",
+      frequency:"Daily at",
+      time:"10:00 AM"
     },
   ]);
   const [rowToEdit, setRowToEdit] = useState(null);
@@ -49,10 +55,13 @@ function App() {
 
   return (
     <div className="App">
+      <div className="NavContainer">
+        <div className="SearchInput">Search</div>
+        <button onClick={() => setModalOpen(true)} className="btn">
+         <CgAdd /> Add
+        </button>
+      </div>
       <Table rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow} />
-      <button onClick={() => setModalOpen(true)} className="btn">
-        Add
-      </button>
       {modalOpen && (
         <Modal
           closeModal={() => {
@@ -61,6 +70,7 @@ function App() {
           }}
           onSubmit={handleSubmit}
           defaultValue={rowToEdit !== null && rows[rowToEdit]}
+          rowToEdit={rowToEdit}
         />
       )}
     </div>

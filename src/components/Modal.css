@@ -12,15 +12,19 @@
 }
 
 .modal {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
   border-radius: 5px;
   padding: 2rem;
   background-color: white;
   width: 25em;
 }
-
-.modal .btn {
-  display: block;
-  margin: auto;
+.ButtonContainer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .form-group {
@@ -48,4 +52,25 @@
   padding: 0.5rem;
   border-radius: 0.3rem;
   margin-bottom: 1rem;
+}
+.WeekContainer{
+  display: flex;
+  gap: 20px;
+}
+.WeekName{
+  display: flex;
+  gap: 15px;
+
+}
+.WeekName span{
+  text-align: center;
+  width: 24px;
+height: 24px;
+flex-shrink: 0;
+border-radius: 50%;
+  border: 1px solid lightgrey;
+  fill: #FFF;
+  stroke-width: 1px;
+  stroke:rgba(60, 30, 90, 0.10);
+    /* margin-left: 10px; */
 }
