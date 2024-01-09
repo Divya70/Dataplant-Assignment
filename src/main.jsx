@@ -11,7 +11,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
      <TimeProvider>
      <App />
      </TimeProvider>
-     
      </BrowserRouter>
    
   </React.StrictMode>,

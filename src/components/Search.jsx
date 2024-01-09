@@ -29,12 +29,6 @@ const SearchComponent = ({ rows }) => {
           <IoSearchSharp />
         </div>
       </div>
-      {/* <div>
-        {filteredData.map((item, index) => (
-         
-          <div key={index}>{item.title}</div>
-        ))}
-      </div> */}
     </>
   );
 };

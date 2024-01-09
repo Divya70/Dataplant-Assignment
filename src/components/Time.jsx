@@ -3,7 +3,6 @@ import { useTime } from "../Context";
 
 const TimeDropdown = () => {
   // State to manage the selected time
-  // const [selectedTime, setSelectedTime] = useState("");
   const {timeState, setTimeState}=useTime()
 
   // Array of time options
